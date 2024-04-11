@@ -1,6 +1,6 @@
-package proyecto.gestoralmuerzo.repositoryrepositoryrepository;
+package proyecto.gestoralmuerzo.repository;
 
-import proyecto.gestoralmuerzo.repositoryrepositorymodel.Ingredient;
+import proyecto.gestoralmuerzo.model.Ingredient;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

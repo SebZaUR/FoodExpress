@@ -1,12 +1,12 @@
-package proyecto.gestoralmuerzo.repositoryrepositorycontroller;
+package proyecto.gestoralmuerzo.controller;
 
-import proyecto.gestoralmuerzo.repositoryrepositoryrepository.UserRepository;
-import proyecto.gestoralmuerzo.repositoryrepositorymodel.*;
-import proyecto.gestoralmuerzo.repositoryrepositoryservice.IngredientServices;
-import proyecto.gestoralmuerzo.repositoryrepositoryservice.OrderServices;
-import proyecto.gestoralmuerzo.repositoryrepositoryexceptions.GestorAlmuerzosAppException;
-import proyecto.gestoralmuerzo.repositoryrepositoryservice.PlateServices;
-import proyecto.gestoralmuerzo.repositoryrepositoryservice.UserServices;
+import proyecto.gestoralmuerzo.repository.UserRepository;
+import proyecto.gestoralmuerzo.model.*;
+import proyecto.gestoralmuerzo.service.IngredientServices;
+import proyecto.gestoralmuerzo.service.OrderServices;
+import proyecto.gestoralmuerzo.exceptions.GestorAlmuerzosAppException;
+import proyecto.gestoralmuerzo.service.PlateServices;
+import proyecto.gestoralmuerzo.service.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

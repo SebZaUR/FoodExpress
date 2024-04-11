@@ -1,4 +1,4 @@
-package proyecto.gestoralmuerzo.repositoryrepositorymodel;
+package proyecto.gestoralmuerzo.model;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

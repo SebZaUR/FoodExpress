@@ -1,9 +1,9 @@
 
-package proyecto.gestoralmuerzo.repositoryrepositorycontroller;
+package proyecto.gestoralmuerzo.controller;
 
-import proyecto.gestoralmuerzo.repositoryrepositorymodel.Ingredient;
-import proyecto.gestoralmuerzo.repositoryrepositoryservice.IngredientServices;
-import proyecto.gestoralmuerzo.repositoryrepositoryservice.PlateServices;
+import proyecto.gestoralmuerzo.model.Ingredient;
+import proyecto.gestoralmuerzo.service.IngredientServices;
+import proyecto.gestoralmuerzo.service.PlateServices;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

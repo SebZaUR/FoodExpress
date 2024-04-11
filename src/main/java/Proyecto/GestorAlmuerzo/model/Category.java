@@ -1,4 +1,4 @@
-package proyecto.gestoralmuerzo.repositoryrepositorymodel;
+package proyecto.gestoralmuerzo.model;
 
 import jakarta.persistence.*;
 import java.util.HashSet;
