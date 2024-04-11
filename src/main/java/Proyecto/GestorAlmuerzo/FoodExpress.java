@@ -1,14 +1,16 @@
-package Proyecto.GestorAlmuerzo;
+package proyecto.gestorAlmuerzo;
 
-import Proyecto.GestorAlmuerzo.Repository.RoleRepository;
-import Proyecto.GestorAlmuerzo.model.*;
-import Proyecto.GestorAlmuerzo.service.*;
+import proyecto.gestorAlmuerzo.exceptions.GestorAlmuerzosAppException;
+import proyecto.gestorAlmuerzo.repository.*;
+import proyecto.gestorAlmuerzo.repository.RoleRepository;
+import proyecto.gestorAlmuerzo.model.*;
+import proyecto.gestorAlmuerzo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import Proyecto.GestorAlmuerzo.model.Role;
+import proyecto.gestorAlmuerzo.model.Role;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -38,7 +40,7 @@ public class FoodExpress {
 
 
     @Bean
-    public CommandLineRunner run() throws Exception {
+    public CommandLineRunner run() throws GestorAlmuerzosAppException {
         return (args) -> {
             appService.addRol(new Role( "ROLE_client"));
             appService.addRol(new Role("ROLE_admin"));

@@ -1,6 +1,6 @@
-package Proyecto.GestorAlmuerzo.Repository;
+package proyecto.gestorAlmuerzo.repository;
 
-import Proyecto.GestorAlmuerzo.model.Plate;
+import proyecto.gestorAlmuerzo.model.Plate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

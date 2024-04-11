@@ -1,11 +1,11 @@
-package Proyecto.GestorAlmuerzo.controller;
+package proyecto.gestorAlmuerzo.controller;
 
-import Proyecto.GestorAlmuerzo.model.Category;
-import Proyecto.GestorAlmuerzo.model.Ingredient;
-import Proyecto.GestorAlmuerzo.model.Plate;
-import Proyecto.GestorAlmuerzo.service.CategoryServices;
-import Proyecto.GestorAlmuerzo.service.IngredientServices;
-import Proyecto.GestorAlmuerzo.service.PlateServices;
+import proyecto.gestorAlmuerzo.model.Category;
+import proyecto.gestorAlmuerzo.model.Ingredient;
+import proyecto.gestorAlmuerzo.model.Plate;
+import proyecto.gestorAlmuerzo.service.CategoryServices;
+import proyecto.gestorAlmuerzo.service.IngredientServices;
+import proyecto.gestorAlmuerzo.service.PlateServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

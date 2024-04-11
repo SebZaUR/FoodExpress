@@ -1,9 +1,9 @@
-package Proyecto.GestorAlmuerzo.model;
+package proyecto.gestorAlmuerzo.model;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
-import Proyecto.GestorAlmuerzo.Repository.RoleRepository;
+import proyecto.gestorAlmuerzo.repository.RoleRepository;
 import lombok.Getter;
 import lombok.Setter;
 import proyecto.gestorAlmuerzo.exceptions.GestorAlmuerzosAppException;

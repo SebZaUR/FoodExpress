@@ -1,10 +1,10 @@
-package Proyecto.GestorAlmuerzo.service;
+package proyecto.gestorAlmuerzo.service;
 
 
-import Proyecto.GestorAlmuerzo.Repository.IngredientRepository;
-import Proyecto.GestorAlmuerzo.Repository.PlateRepository;
-import Proyecto.GestorAlmuerzo.model.Ingredient;
-import Proyecto.GestorAlmuerzo.model.Plate;
+import proyecto.gestorAlmuerzo.repository.IngredientRepository;
+import proyecto.gestorAlmuerzo.repository.PlateRepository;
+import proyecto.gestorAlmuerzo.model.Ingredient;
+import proyecto.gestorAlmuerzo.model.Plate;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
