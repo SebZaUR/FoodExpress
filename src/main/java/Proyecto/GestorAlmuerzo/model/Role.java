@@ -1,4 +1,4 @@
-package proyecto.gestorAlmuerzo.model;
+package proyecto.gestoralmuerzo.repositoryrepositorymodel;
 
 import jakarta.persistence.*;
 

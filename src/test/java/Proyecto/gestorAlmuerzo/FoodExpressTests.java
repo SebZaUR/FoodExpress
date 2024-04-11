@@ -1,9 +1,9 @@
 package proyecto.gestorAlmuerzo;
 
-import proyecto.gestorAlmuerzo.repository.*;
-import proyecto.gestorAlmuerzo.exceptions.GestorAlmuerzosAppException;
-import proyecto.gestorAlmuerzo.model.*;
-import proyecto.gestorAlmuerzo.service.*;
+import proyecto.gestoralmuerzo.repositoryrepositoryrepository.*;
+import proyecto.gestoralmuerzo.repositoryrepositoryexceptions.GestorAlmuerzosAppException;
+import proyecto.gestoralmuerzo.repositoryrepositorymodel.*;
+import proyecto.gestoralmuerzo.repositoryrepositoryservice.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

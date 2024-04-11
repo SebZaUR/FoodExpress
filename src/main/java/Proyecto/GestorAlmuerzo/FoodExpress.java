@@ -1,15 +1,15 @@
 package proyecto.gestorAlmuerzo;
 
-import proyecto.gestorAlmuerzo.exceptions.GestorAlmuerzosAppException;
-import proyecto.gestorAlmuerzo.repository.RoleRepository;
-import proyecto.gestorAlmuerzo.model.*;
-import proyecto.gestorAlmuerzo.service.*;
+import proyecto.gestoralmuerzo.repositoryrepositoryexceptions.GestorAlmuerzosAppException;
+import proyecto.gestoralmuerzo.repositoryrepositoryrepository.RoleRepository;
+import proyecto.gestoralmuerzo.repositoryrepositorymodel.*;
+import proyecto.gestoralmuerzo.repositoryrepositoryservice.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import proyecto.gestorAlmuerzo.model.Role;
+import proyecto.gestoralmuerzo.repositoryrepositorymodel.Role;
 
 import java.util.HashSet;
 import java.util.Set;

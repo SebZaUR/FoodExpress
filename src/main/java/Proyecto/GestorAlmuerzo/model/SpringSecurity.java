@@ -1,4 +1,4 @@
-package proyecto.gestorAlmuerzo.model;
+package proyecto.gestoralmuerzo.repositoryrepositorymodel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

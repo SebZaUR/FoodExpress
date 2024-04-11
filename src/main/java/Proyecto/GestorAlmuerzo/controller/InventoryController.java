@@ -1,9 +1,9 @@
 
-package proyecto.gestorAlmuerzo.controller;
+package proyecto.gestoralmuerzo.repositoryrepositorycontroller;
 
-import proyecto.gestorAlmuerzo.model.Ingredient;
-import proyecto.gestorAlmuerzo.service.IngredientServices;
-import proyecto.gestorAlmuerzo.service.PlateServices;
+import proyecto.gestoralmuerzo.repositoryrepositorymodel.Ingredient;
+import proyecto.gestoralmuerzo.repositoryrepositoryservice.IngredientServices;
+import proyecto.gestoralmuerzo.repositoryrepositoryservice.PlateServices;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -68,7 +68,7 @@ public class InventoryController {
         try {
             long ingredientId = Long.parseLong(id);
             ingredientServices.deleteIngredient(ingredientId);
-        }catch (proyecto.gestorAlmuerzo.exceptions.GestorAlmuerzosAppException e){
+        }catch (proyecto.gestoralmuerzo.repositoryrepositoryexceptions.GestorAlmuerzosAppException e){
             redirectAttributes.addFlashAttribute("error", "Error al eliminar el ingrediente: " + e.getMessage());
             return "redirect:/admin/inventory?error";
         }

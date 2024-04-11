@@ -1,4 +1,4 @@
-package proyecto.gestorAlmuerzo.exceptions;
+package proyecto.gestoralmuerzo.repositoryrepositoryexceptions;
 
 public class GestorAlmuerzosAppException extends Exception{
     public static final String EmptyPassword = "Contraseña Vacia, Porfavor llenar el campo";

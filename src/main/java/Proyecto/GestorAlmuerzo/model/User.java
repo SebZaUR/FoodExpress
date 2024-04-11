@@ -1,12 +1,12 @@
-package proyecto.gestorAlmuerzo.model;
+package proyecto.gestoralmuerzo.repositoryrepositorymodel;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
-import proyecto.gestorAlmuerzo.repository.RoleRepository;
+import proyecto.gestoralmuerzo.repositoryrepositoryrepository.RoleRepository;
 import lombok.Getter;
 import lombok.Setter;
-import proyecto.gestorAlmuerzo.exceptions.GestorAlmuerzosAppException;
+import proyecto.gestoralmuerzo.repositoryrepositoryexceptions.GestorAlmuerzosAppException;
 import jakarta.persistence.*;
 @Entity
 @Getter

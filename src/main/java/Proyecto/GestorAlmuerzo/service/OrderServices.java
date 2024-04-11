@@ -1,7 +1,7 @@
-package proyecto.gestorAlmuerzo.service;
+package proyecto.gestoralmuerzo.repositoryrepositoryservice;
 
-import proyecto.gestorAlmuerzo.repository.OrderRepository;
-import proyecto.gestorAlmuerzo.model.Order;
+import proyecto.gestoralmuerzo.repositoryrepositoryrepository.OrderRepository;
+import proyecto.gestoralmuerzo.repositoryrepositorymodel.Order;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
