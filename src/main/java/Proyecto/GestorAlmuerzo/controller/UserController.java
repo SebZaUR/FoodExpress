@@ -104,7 +104,7 @@ public class UserController {
             return "register";
         }
         if(!password.equals(confirm)){
-            model.addAttribute("error", GestorAlmuerzosAppException.notpasswordconcident);
+            model.addAttribute("error", GestorAlmuerzosAppException.notpdconcident);
             return "register";
         }
         if(name.isEmpty()){

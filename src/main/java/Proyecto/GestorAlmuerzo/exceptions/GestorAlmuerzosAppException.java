@@ -5,7 +5,7 @@ public class GestorAlmuerzosAppException extends Exception{
     public static final String incorrectinformation = "Información Incorrecta. Porfavor verifique datos";
     public static final String emailexist = "El correo ya esta registrado, por favor escoja otro";
     public static String emptyemail = "El usuario debe rellenar el campo de email";
-    public static String notpasswordconcident = "Ambas contraseñas no coinciden , por favor revisar";
+    public static String notpdconcident = "Ambas contraseñas no coinciden , por favor revisar";
 
     public static String nameempty = "Falta Nombre";
     public static String lastnameempty = "Falta Apellido";

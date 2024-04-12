@@ -15,25 +15,24 @@ import java.util.Set;
 
 @SpringBootApplication
 public class FoodExpress {
-    @Autowired
-    RoleRepository roleRepository;
-    
-    @Autowired(required = true)
-    UserServices usuarioService;
-
-    @Autowired(required = true)
-    AppServices appService;
-
-    @Autowired(required = true)
-    CategoryServices categoryServices;
-
-    @Autowired(required = false)
-    IngredientServices ingredientServices;
-
-    @Autowired(required = true)
-    PlateServices plateServices;
+    private final RoleRepository roleRepository;
+    private final UserServices usuarioService;
+    private final AppServices appService;
+    private final CategoryServices categoryServices;
+    private final IngredientServices ingredientServices;
+    private final PlateServices plateServices;
     public static void main(String[] args) {
         SpringApplication.run(FoodExpress.class, args);
+    }
+
+    public FoodExpress(RoleRepository roleRepository,UserServices userServices,AppServices appServices,CategoryServices categoryServices, IngredientServices ingredientServices,PlateServices plateServices){
+        this.appService = appServices;
+        this.roleRepository = roleRepository;
+        this.usuarioService=userServices;
+        this.categoryServices=categoryServices;
+        this.ingredientServices=ingredientServices;
+        this.plateServices=plateServices;
+
     }
 
 
