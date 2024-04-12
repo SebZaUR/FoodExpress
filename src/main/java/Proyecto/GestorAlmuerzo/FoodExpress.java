@@ -39,7 +39,7 @@ public class FoodExpress {
 
 
     @Bean
-    public CommandLineRunner run() throws GestorAlmuerzosAppException {
+    public CommandLineRunner run() {
         return (args) -> {
             appService.addRol(new Role( "ROLE_client"));
             appService.addRol(new Role("ROLE_admin"));
