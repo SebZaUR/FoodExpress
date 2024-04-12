@@ -10,7 +10,7 @@ import proyecto.gestoralmuerzo.exceptions.GestorAlmuerzosAppException;
 import java.util.List;
 import java.util.Optional;
 
-import static proyecto.gestoralmuerzo.exceptions.GestorAlmuerzosAppException.IngredientInUse;
+import static proyecto.gestoralmuerzo.exceptions.GestorAlmuerzosAppException.ingredientinuse;
 
 @Service
 public class IngredientServices {
@@ -42,7 +42,7 @@ public class IngredientServices {
         if(ingredient.getPlates().isEmpty()){
             ingredientRepository.deleteById(ingredientId);
         } else {
-            throw new GestorAlmuerzosAppException(IngredientInUse);
+            throw new GestorAlmuerzosAppException(ingredientinuse);
         }
     }
 

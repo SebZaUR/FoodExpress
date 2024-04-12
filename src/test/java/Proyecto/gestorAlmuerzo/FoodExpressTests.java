@@ -62,13 +62,13 @@ class FoodExpressTests {
     }
 
     @Test
-    public void testLoginEmptyEmail() {
+    public void testLoginemptyemail() {
         // Test
         try {
             userService.login("", "password");
         } catch (GestorAlmuerzosAppException e) {
             // Verify
-            assert(e.getMessage().equals(GestorAlmuerzosAppException.EmptyEmail));
+            assert(e.getMessage().equals(GestorAlmuerzosAppException.emptyemail));
             return;
         }
         assert(false); // The test should throw an exception
@@ -111,24 +111,24 @@ class FoodExpressTests {
     }
 
     @Test
-    public void ShouldNotLoginWithIncorrectInformation()  {
+    public void ShouldNotLoginWithincorrectinformation()  {
         try {
             User user = new User("sebassele2008@gmail.com", "Sebastian", "Zamora", "1234", null, roleRepository);
             when(userRepository.findById(Mockito.anyString())).thenReturn(Optional.of(user));
             boolean result = userService.login("sebassele2008@gmail.com", "123456");
             assertFalse(result);
         } catch (GestorAlmuerzosAppException e){
-            assertEquals(e.getMessage(),GestorAlmuerzosAppException.IncorrectInformation);
+            assertEquals(e.getMessage(),GestorAlmuerzosAppException.incorrectinformation);
         }
     }
 
     @Test
-   public void ShouldNotLoginWithEmptyPassword()  {
+   public void ShouldNotLoginWithemptyPassword()  {
         try {
             boolean result = userService.login("sebassele2008@gmail.com", "");
             assertFalse(result);
         } catch (GestorAlmuerzosAppException e){
-            assertEquals(e.getMessage(),GestorAlmuerzosAppException.EmptyPassword);
+            assertEquals(e.getMessage(),GestorAlmuerzosAppException.emptyPassword);
         }
     }
 

@@ -22,13 +22,13 @@ public class UserServices {
 
     public boolean login(String email, String password) throws GestorAlmuerzosAppException {
         if (email.isEmpty()) {
-            throw new GestorAlmuerzosAppException(GestorAlmuerzosAppException.EmptyEmail);
+            throw new GestorAlmuerzosAppException(GestorAlmuerzosAppException.emptyemail);
         }
         if (password.isEmpty()) {
-            throw new GestorAlmuerzosAppException(GestorAlmuerzosAppException.EmptyPassword);
+            throw new GestorAlmuerzosAppException(GestorAlmuerzosAppException.emptyPassword);
         }
         Optional<User> newUser = getUser(email);
-        User usuario = newUser.orElseThrow(() -> new GestorAlmuerzosAppException(GestorAlmuerzosAppException.EmailNoExist));
+        User usuario = newUser.orElseThrow(() -> new GestorAlmuerzosAppException(GestorAlmuerzosAppException.emailnotexist));
         String encryptPassword = usuario.encrypt(password);
         String userPassword = usuario.getPassword();
         return encryptPassword.equals(userPassword);
