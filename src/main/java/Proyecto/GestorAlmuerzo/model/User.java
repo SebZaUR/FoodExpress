@@ -3,10 +3,10 @@ package proyecto.gestoralmuerzo.model;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
-import proyecto.gestoralmuerzo.repositoryrepositoryrepository.RoleRepository;
+import proyecto.gestoralmuerzo.repository.RoleRepository;
 import lombok.Getter;
 import lombok.Setter;
-import proyecto.gestoralmuerzo.repositoryrepositoryexceptions.GestorAlmuerzosAppException;
+import proyecto.gestoralmuerzo.exceptions.GestorAlmuerzosAppException;
 import jakarta.persistence.*;
 @Entity
 @Getter
