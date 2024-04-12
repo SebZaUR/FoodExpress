@@ -1,6 +1,5 @@
 package proyecto.gestoralmuerzo;
 
-import proyecto.gestoralmuerzo.exceptions.GestorAlmuerzosAppException;
 import proyecto.gestoralmuerzo.repository.RoleRepository;
 import proyecto.gestoralmuerzo.model.*;
 import proyecto.gestoralmuerzo.service.*;

@@ -119,7 +119,6 @@ public class UserController {
             model.addAttribute("error", GestorAlmuerzosAppException.EmptyEmail);
             return "register";
         }
-        UserDTO usuario = new UserDTO(name,lastName,email);
         userServices.addUser(user,true);
         String retu = user.getRole();
         setValues(model);
@@ -154,7 +153,7 @@ public class UserController {
     public String sendEmail(@RequestParam("email") String email,Model model) throws GestorAlmuerzosAppException {
         Optional<User> usuario = userServices.getUser(email);
         try {
-            User user = usuario.orElseThrow(() -> new GestorAlmuerzosAppException(GestorAlmuerzosAppException.EmailNoExist));
+            usuario.orElseThrow(() -> new GestorAlmuerzosAppException(GestorAlmuerzosAppException.EmailNoExist));
         }catch(GestorAlmuerzosAppException e){
             model.addAttribute("error", e.getMessage());
             return("/user/forgotPassword");

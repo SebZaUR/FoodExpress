@@ -3,7 +3,6 @@ package proyecto.gestoralmuerzo.controller;
 
 import proyecto.gestoralmuerzo.model.Ingredient;
 import proyecto.gestoralmuerzo.service.IngredientServices;
-import proyecto.gestoralmuerzo.service.PlateServices;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,9 +19,6 @@ public class InventoryController {
 
     @Autowired
     private IngredientServices ingredientServices;
-
-    @Autowired
-    private PlateServices plateServices;
 
     @GetMapping
     public String showMenu(Model model) {

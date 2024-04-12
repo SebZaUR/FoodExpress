@@ -125,7 +125,6 @@ class FoodExpressTests {
     @Test
    public void ShouldNotLoginWithEmptyPassword()  {
         try {
-            User user = new User("sebassele2008@gmail.com", "Sebastian", "Zamora", "1234", null, roleRepository);
             boolean result = userService.login("sebassele2008@gmail.com", "");
             assertFalse(result);
         } catch (GestorAlmuerzosAppException e){
