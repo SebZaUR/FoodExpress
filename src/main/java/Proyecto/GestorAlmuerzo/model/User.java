@@ -72,7 +72,7 @@ public class User {
         points = 0;
         if(role != null){
             Optional<Role> posibleRol= repository.findByCategory("ROLE_" + role);
-            this.role = posibleRol.orElseThrow(() -> new GestorAlmuerzosAppException(GestorAlmuerzosAppException.RoleNotExist));
+            this.role = posibleRol.orElseThrow(() -> new GestorAlmuerzosAppException(GestorAlmuerzosAppException.rolenotexist));
         }
     }
 

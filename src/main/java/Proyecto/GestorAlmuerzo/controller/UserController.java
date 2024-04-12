@@ -62,7 +62,7 @@ public class UserController {
                 userLogin = correo;
                 redirect = "redirect:/" + usuario.getRole();
             }else{
-                model.addAttribute("error", GestorAlmuerzosAppException.IncorrectInformation);
+                model.addAttribute("error", GestorAlmuerzosAppException.incorrectinformation);
                 return redirect;
             }
         }catch (GestorAlmuerzosAppException e){
@@ -100,23 +100,23 @@ public class UserController {
                            @RequestParam("apellido") String lastName,@RequestParam("email") String email,@RequestParam("password") String password,
                            @RequestParam("confirm_password") String confirm,@ModelAttribute("user") User user,Model model) {
         if(repository.findById(email).isPresent()){
-            model.addAttribute("error", GestorAlmuerzosAppException.EmailExist);
+            model.addAttribute("error", GestorAlmuerzosAppException.emailexist);
             return "register";
         }
         if(!password.equals(confirm)){
-            model.addAttribute("error", GestorAlmuerzosAppException.NotPasswordConcident);
+            model.addAttribute("error", GestorAlmuerzosAppException.notpasswordconcident);
             return "register";
         }
         if(name.isEmpty()){
-            model.addAttribute("error", GestorAlmuerzosAppException.NameEmpty);
+            model.addAttribute("error", GestorAlmuerzosAppException.nameempty);
             return "register";
         }
         if(lastName.isEmpty()){
-            model.addAttribute("error", GestorAlmuerzosAppException.LastNameEmpty);
+            model.addAttribute("error", GestorAlmuerzosAppException.lastnameempty);
             return "register";
         }
         if(email.isEmpty()){
-            model.addAttribute("error", GestorAlmuerzosAppException.EmptyEmail);
+            model.addAttribute("error", GestorAlmuerzosAppException.emptyemail);
             return "register";
         }
         userServices.addUser(user,true);
@@ -153,7 +153,7 @@ public class UserController {
     public String sendEmail(@RequestParam("email") String email,Model model) throws GestorAlmuerzosAppException {
         Optional<User> usuario = userServices.getUser(email);
         try {
-            usuario.orElseThrow(() -> new GestorAlmuerzosAppException(GestorAlmuerzosAppException.EmailNoExist));
+            usuario.orElseThrow(() -> new GestorAlmuerzosAppException(GestorAlmuerzosAppException.emailnotexist));
         }catch(GestorAlmuerzosAppException e){
             model.addAttribute("error", e.getMessage());
             return("/user/forgotPassword");
