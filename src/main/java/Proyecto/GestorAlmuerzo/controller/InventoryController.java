@@ -68,7 +68,7 @@ public class InventoryController {
         try {
             long ingredientId = Long.parseLong(id);
             ingredientServices.deleteIngredient(ingredientId);
-        }catch (proyecto.gestoralmuerzo.repositoryrepositoryexceptions.GestorAlmuerzosAppException e){
+        }catch (proyecto.gestoralmuerzo.exceptions.GestorAlmuerzosAppException e){
             redirectAttributes.addFlashAttribute("error", "Error al eliminar el ingrediente: " + e.getMessage());
             return "redirect:/admin/inventory?error";
         }

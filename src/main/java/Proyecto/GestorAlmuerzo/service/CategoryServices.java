@@ -1,7 +1,7 @@
-package proyecto.gestoralmuerzo.repositoryrepositoryservice;
+package proyecto.gestoralmuerzo.service;
 
-import proyecto.gestoralmuerzo.repositoryrepositoryrepository.CategoryRepository;
-import proyecto.gestoralmuerzo.repositoryrepositorymodel.Category;
+import proyecto.gestoralmuerzo.repository.CategoryRepository;
+import proyecto.gestoralmuerzo.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

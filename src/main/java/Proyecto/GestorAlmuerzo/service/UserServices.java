@@ -1,9 +1,9 @@
-package proyecto.gestoralmuerzo.repositoryrepositoryservice;
+package proyecto.gestoralmuerzo.service;
 
-import proyecto.gestoralmuerzo.repositoryrepositoryrepository.RoleRepository;
-import proyecto.gestoralmuerzo.repositoryrepositoryrepository.UserRepository;
-import proyecto.gestoralmuerzo.repositoryrepositoryexceptions.GestorAlmuerzosAppException;
-import proyecto.gestoralmuerzo.repositoryrepositorymodel.User;
+import proyecto.gestoralmuerzo.repository.RoleRepository;
+import proyecto.gestoralmuerzo.repository.UserRepository;
+import proyecto.gestoralmuerzo.exceptions.GestorAlmuerzosAppException;
+import proyecto.gestoralmuerzo.model.User;
 
 import java.util.List;
 import java.util.Optional;

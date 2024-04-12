@@ -1,7 +1,7 @@
-package proyecto.gestoralmuerzo.repositoryrepositoryservice;
+package proyecto.gestoralmuerzo.service;
 
-import proyecto.gestoralmuerzo.repositoryrepositoryrepository.RoleRepository;
-import proyecto.gestoralmuerzo.repositoryrepositorymodel.Role;
+import proyecto.gestoralmuerzo.repository.RoleRepository;
+import proyecto.gestoralmuerzo.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

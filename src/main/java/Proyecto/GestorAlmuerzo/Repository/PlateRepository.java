@@ -1,6 +1,6 @@
 package proyecto.gestoralmuerzo.repository;
 
-import proyecto.gestoralmuerzo.repositoryrepositorymodel.Plate;
+import proyecto.gestoralmuerzo.model.Plate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

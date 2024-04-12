@@ -1,16 +1,16 @@
-package proyecto.gestoralmuerzo.repositoryrepositoryservice;
+package proyecto.gestoralmuerzo.service;
 
-import proyecto.gestoralmuerzo.repositoryrepositoryrepository.IngredientRepository;
-import proyecto.gestoralmuerzo.repositoryrepositorymodel.Ingredient;
+import proyecto.gestoralmuerzo.repository.IngredientRepository;
+import proyecto.gestoralmuerzo.model.Ingredient;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import proyecto.gestoralmuerzo.repositoryrepositoryexceptions.GestorAlmuerzosAppException;
+import proyecto.gestoralmuerzo.exceptions.GestorAlmuerzosAppException;
 
 import java.util.List;
 import java.util.Optional;
 
-import static proyecto.gestoralmuerzo.repositoryrepositoryexceptions.GestorAlmuerzosAppException.IngredientInUse;
+import static proyecto.gestoralmuerzo.exceptions.GestorAlmuerzosAppException.IngredientInUse;
 
 @Service
 public class IngredientServices {
