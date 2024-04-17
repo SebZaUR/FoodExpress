@@ -41,8 +41,11 @@ public class Ingredient {
         this.name = name;
     }
 
-    public Ingredient(int ingredientId, String testPlate, String description, int i) {
-
+    public Ingredient(Long id, String name, String description, int amount) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.amount = amount;
     }
 
     @Override

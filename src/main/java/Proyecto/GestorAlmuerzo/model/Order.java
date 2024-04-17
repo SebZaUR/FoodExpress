@@ -53,6 +53,7 @@ public class Order {
     }
 
     public Order(int orderId) {
+        this.id =orderId;
     }
 
     public int getId() {
