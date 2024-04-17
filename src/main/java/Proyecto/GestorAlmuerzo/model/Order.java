@@ -46,7 +46,6 @@ public class Order {
         this.fecha = fecha;
         this.idUsuario = idUsuario;
         this.price = price;
-//        this.plates = plates;
     }
 
     public Order() {

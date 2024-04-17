@@ -205,7 +205,7 @@ public class UserController {
     }
 
     @GetMapping("/usersRoles")
-    private String showAllUsers(Model m){
+    public String showAllUsers(Model m){
         List<User> listUsers = userServices.getAllUsers();
         m.addAttribute("Usuarios", listUsers);
         return "admin/listUsers";
@@ -332,7 +332,7 @@ public class UserController {
     }
 
     @PostMapping("/addToCart")
-    private String addPlateToCart(@RequestParam("id") int plateId,Model m){
+    public String addPlateToCart(@RequestParam("id") int plateId,Model m){
         Optional<Plate> plate = plateServices.getPlateById(plateId);
         Plate plato =plate.orElseThrow();
         plateList.add(plato);
@@ -342,7 +342,7 @@ public class UserController {
     }
 
     @GetMapping("cart")
-    private String listPlatesOrder(Model m){
+    public String listPlatesOrder(Model m){
         setValues(m);
         valorTotal = 0;
         for (Plate plato:plateList){
@@ -354,7 +354,7 @@ public class UserController {
     }
 
     @PostMapping("payOrder")
-    private String payOrder(Model m){
+    public String payOrder(Model m){
         Optional<User> usuario = userServices.getUser(userLogin);
         User user = usuario.orElseThrow();
         List<Order> orderList = user.getOrdenes();
@@ -371,7 +371,7 @@ public class UserController {
     }
 
     @GetMapping("/facture")
-    private String generateFacture(Model m){
+    public String generateFacture(Model m){
         m.addAttribute("order",order);
         long randomLong = Math.abs(num.nextLong());
         m.addAttribute("numFactura",randomLong);

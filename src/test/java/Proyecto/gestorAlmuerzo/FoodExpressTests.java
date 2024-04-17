@@ -118,7 +118,7 @@ class FoodExpressTests {
             boolean result = userService.login("sebassele2008@gmail.com", "123456");
             assertFalse(result);
         } catch (GestorAlmuerzosAppException e){
-            assertEquals(e.getMessage(),GestorAlmuerzosAppException.INCORRECT_INFORMATION);
+            assertEquals(GestorAlmuerzosAppException.INCORRECT_INFORMATION,e.getMessage());
         }
     }
 
@@ -128,7 +128,7 @@ class FoodExpressTests {
             boolean result = userService.login("sebassele2008@gmail.com", "");
             assertFalse(result);
         } catch (GestorAlmuerzosAppException e){
-            assertEquals(e.getMessage(),GestorAlmuerzosAppException.EMPTY_PD);
+            assertEquals(GestorAlmuerzosAppException.EMPTY_PD,e.getMessage());
         }
     }
 
