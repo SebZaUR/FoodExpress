@@ -111,6 +111,7 @@
         <div th:each="ingredient: ${ingredients}">
             <label th:for="${'ingredient-' + ingredient.id}" th:text="${ingredient.name}">
                 <input type="checkbox" id="${'ingredient-' + ingredient.id}" name="ingredients" th:value="${ingredient.id}"/>
+                Ingrediente
             </label>
         </div>
 
