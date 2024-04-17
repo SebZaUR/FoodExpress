@@ -7,7 +7,6 @@ import proyecto.gestoralmuerzo.service.OrderServices;
 import proyecto.gestoralmuerzo.exceptions.GestorAlmuerzosAppException;
 import proyecto.gestoralmuerzo.service.PlateServices;
 import proyecto.gestoralmuerzo.service.UserServices;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,20 +21,22 @@ public class UserController {
     private Random num = new Random();
     private int valorTotal;
     private String userLogin;
-    @Autowired
-    PlateServices plateServices;
-    @Autowired
-    UserServices userServices;
-    @Autowired
-    IngredientServices ingredientServices;
-    @Autowired
-    UserRepository repository;
-
-    @Autowired
-    OrderServices orderServices;
+    private final PlateServices plateServices;
+    private final UserServices userServices;
+    private final IngredientServices ingredientServices;
+    private final UserRepository repository;
+    private final OrderServices orderServices;
 
     private Order order;
     private List<Plate> plateList = new ArrayList<>();
+
+    public UserController( PlateServices plateServices, UserServices userServices, IngredientServices ingredientServices, UserRepository repository, OrderServices orderServices) {
+        this.plateServices = plateServices;
+        this.userServices = userServices;
+        this.ingredientServices = ingredientServices;
+        this.repository = repository;
+        this.orderServices = orderServices;
+    }
 
     @GetMapping("/")
     public String index(Model model){

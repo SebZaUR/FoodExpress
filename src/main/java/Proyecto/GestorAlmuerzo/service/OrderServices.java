@@ -3,7 +3,6 @@ package proyecto.gestoralmuerzo.service;
 import proyecto.gestoralmuerzo.repository.OrderRepository;
 import proyecto.gestoralmuerzo.model.Order;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,8 +18,12 @@ import java.util.Optional;
  */
 @Service
 public class OrderServices {
-    @Autowired
-    private OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
+
+    public OrderServices(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
+
     public List<Order> getAllOrders() {
         return orderRepository.findAll();
     }

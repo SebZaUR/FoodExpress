@@ -6,7 +6,6 @@ import proyecto.gestoralmuerzo.repository.PlateRepository;
 import proyecto.gestoralmuerzo.model.Ingredient;
 import proyecto.gestoralmuerzo.model.Plate;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +13,13 @@ import java.util.*;
 
 @Service
 public class PlateServices {
+    private final PlateRepository plateRepository;
+    private final IngredientRepository ingredientRepository;
 
-    @Autowired
-    private PlateRepository plateRepository;
-
-    @Autowired
-    private IngredientRepository ingredientRepository;
+    public PlateServices(PlateRepository plateRepository, IngredientRepository ingredientRepository) {
+        this.plateRepository = plateRepository;
+        this.ingredientRepository = ingredientRepository;
+    }
 
     public List<Plate> getAllPlates() {
         return plateRepository.findAll();

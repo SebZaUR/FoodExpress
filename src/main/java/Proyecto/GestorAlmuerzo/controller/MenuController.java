@@ -6,7 +6,6 @@ import proyecto.gestoralmuerzo.model.Plate;
 import proyecto.gestoralmuerzo.service.CategoryServices;
 import proyecto.gestoralmuerzo.service.IngredientServices;
 import proyecto.gestoralmuerzo.service.PlateServices;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,14 +18,15 @@ import java.util.*;
 @RequestMapping("/admin/menu")
 public class MenuController {
 
-    @Autowired
-    private PlateServices plateServices;
+    private final PlateServices plateServices;
+    private final CategoryServices categoryServices;
+    private final IngredientServices ingredientServices;
 
-    @Autowired
-    private CategoryServices categoryServices;
-
-    @Autowired
-    private IngredientServices ingredientServices;
+    public MenuController(PlateServices plateServices, CategoryServices categoryServices, IngredientServices ingredientServices) {
+        this.plateServices = plateServices;
+        this.categoryServices = categoryServices;
+        this.ingredientServices = ingredientServices;
+    }
 
     @GetMapping
     public String showMenu(@RequestParam(name = "sortBy",defaultValue = "name") String sortBy,

@@ -2,7 +2,6 @@ package proyecto.gestoralmuerzo.service;
 
 import proyecto.gestoralmuerzo.repository.RoleRepository;
 import proyecto.gestoralmuerzo.model.Role;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,8 +10,11 @@ import java.util.Optional;
 @Service
 public class AppServices {
 
-    @Autowired
-    private RoleRepository roleRepository;
+    private final RoleRepository roleRepository;
+
+    public AppServices(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
 
     /**
      * Me devuelve el rol

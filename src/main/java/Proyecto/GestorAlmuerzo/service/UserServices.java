@@ -4,21 +4,21 @@ import proyecto.gestoralmuerzo.repository.RoleRepository;
 import proyecto.gestoralmuerzo.repository.UserRepository;
 import proyecto.gestoralmuerzo.exceptions.GestorAlmuerzosAppException;
 import proyecto.gestoralmuerzo.model.User;
-
 import java.util.List;
 import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServices {
 
-    @Autowired
-    private UserRepository UserRepository;
+    private final UserRepository UserRepository;
 
-    @Autowired
-    private RoleRepository roleRepository;
+    private final  RoleRepository roleRepository;
+
+    public UserServices(proyecto.gestoralmuerzo.repository.UserRepository userRepository, RoleRepository roleRepository) {
+        UserRepository = userRepository;
+        this.roleRepository = roleRepository;
+    }
 
     public boolean login(String email, String password) throws GestorAlmuerzosAppException {
         if (email.isEmpty()) {
