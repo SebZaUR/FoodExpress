@@ -18,7 +18,7 @@ import java.util.*;
 
 @Controller
 public class UserController {
-    private Random num = new Random();
+    private final Random num = new Random();
     private int valorTotal;
     private String userLogin;
     private final PlateServices plateServices;
@@ -154,12 +154,12 @@ public class UserController {
     public String sendEmail(@RequestParam("email") String email,Model model) throws GestorAlmuerzosAppException {
         Optional<User> usuario = userServices.getUser(email);
         try {
-            usuario.orElseThrow(() -> new GestorAlmuerzosAppException(GestorAlmuerzosAppException.emailnotexist));
+            User user = usuario.orElseThrow(() -> new GestorAlmuerzosAppException(GestorAlmuerzosAppException.emailnotexist));
+            return user.getEmail();
         }catch(GestorAlmuerzosAppException e){
             model.addAttribute("error", e.getMessage());
             return("/user/forgotPassword");
         }
-        return "redirect:/login";
     }
 
     @PostMapping("/update")
