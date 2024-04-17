@@ -35,31 +35,31 @@ public class UserServices {
     }
 
     public Optional<User> getUser(String email) {
-        return UserRepository.findById(email);
+        return userRepository.findById(email);
     }
 
     public void addUser(User user,boolean role) {
-        UserRepository.save(user);
+        userRepository.save(user);
         if(role){
             user.setRole("client",roleRepository);
-            UserRepository.save(user);
+            userRepository.save(user);
         }
     }
 
     public void updateUser(User user) {
-        Optional<User> usuario = UserRepository.findById(user.getEmail());
+        Optional<User> usuario = userRepository.findById(user.getEmail());
         User u = usuario.orElseThrow();
         String role = u.getRole();
         user.setRole(role,roleRepository);
-        UserRepository.save(user);
+        userRepository.save(user);
     }
 
     public List<User> getAllUsers() {
-        return UserRepository.findAll();
+        return userRepository.findAll();
     }
 
     public void deleteUser(String id) {
-        UserRepository.deleteById(id);
+        userRepository.deleteById(id);
     }
 
 }

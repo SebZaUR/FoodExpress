@@ -66,7 +66,7 @@ public class UserController {
                 userLogin = correo;
                 redirect = LINKINICIO + usuario.getRole();
             }else{
-                model.addAttribute(ERROR, GestorAlmuerzosAppException.incorrect_information);
+                model.addAttribute(ERROR, GestorAlmuerzosAppException.INCORRECT_INFORMATION);
                 return redirect;
             }
         }catch (GestorAlmuerzosAppException e){
