@@ -105,28 +105,25 @@
                         <div class="card-body">
                             <div class="userview" th:if="${order}">
                                 <div class="informacion mb-3">
-                                    <label class="fw-bold">Numero Factura</label>
+                                    <p class="fw-bold">Numero Factura</p>
                                     <p th:text="'FoodExprees_'+ ${numFactura}"></p>
                                 </div>
-                                <div class="informacion mb-3">
-                                    <label class="fw-bold">
-                                        <p th:text="${order.fecha}"></p>
-                                        Fecha:
-                                    </label>
 
-                                </div>
                                 <div class="informacion mb-3">
-                                    <label class="fw-bold">
-                                        <p th:text="${order.idUsuario}"></p>
-                                        Usuario:
-                                    </label>
+                                    <p class="fw-bold">Fecha:</p>
+                                    <p th:text="${order.fecha}"></p>
                                 </div>
+
                                 <div class="informacion mb-3">
-                                    <label class="fw-bold">
-                                        <p th:text="${order.price}"></p>
-                                        Precio
-                                    </label>
+                                    <p class="fw-bold">Usuario:</p>
+                                    <p th:text="${order.idUsuario}"></p>
                                 </div>
+
+                                <div class="informacion mb-3">
+                                    <p class="fw-bold">Precio</p>
+                                    <p th:text="${order.price}"></p>
+                                </div>
+
                             </div>
                         </div>
                     </div>
