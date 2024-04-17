@@ -18,6 +18,6 @@ import proyecto.gestoralmuerzo.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
 
-    Optional<User> findByNombre(String Nombre);
+    Optional<User> findByNombre(String nombre);
 
 }

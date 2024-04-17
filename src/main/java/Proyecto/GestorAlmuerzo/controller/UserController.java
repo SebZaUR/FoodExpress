@@ -26,9 +26,10 @@ public class UserController {
     private final IngredientServices ingredientServices;
     private final UserRepository repository;
     private final OrderServices orderServices;
-
+    private final String linkInicio = "redirect:/";
     private Order order;
     private List<Plate> plateList = new ArrayList<>();
+    private final String error ="error";
 
     public UserController( PlateServices plateServices, UserServices userServices, IngredientServices ingredientServices, UserRepository repository, OrderServices orderServices) {
         this.plateServices = plateServices;
@@ -61,13 +62,13 @@ public class UserController {
                 Optional<User> u = userServices.getUser(correo);
                 User usuario = u.orElseThrow();
                 userLogin = correo;
-                redirect = "redirect:/" + usuario.getRole();
+                redirect = linkInicio + usuario.getRole();
             }else{
-                model.addAttribute("error", GestorAlmuerzosAppException.incorrectinformation);
+                model.addAttribute(error, GestorAlmuerzosAppException.incorrectinformation);
                 return redirect;
             }
         }catch (GestorAlmuerzosAppException e){
-            model.addAttribute("error", e.getMessage());
+            model.addAttribute(error, e.getMessage());
             return redirect;
         }
         return redirect;
@@ -101,29 +102,29 @@ public class UserController {
                            @RequestParam("apellido") String lastName,@RequestParam("email") String email,@RequestParam("password") String password,
                            @RequestParam("confirm_password") String confirm,@ModelAttribute("user") User user,Model model) {
         if(repository.findById(email).isPresent()){
-            model.addAttribute("error", GestorAlmuerzosAppException.emailexist);
+            model.addAttribute(error, GestorAlmuerzosAppException.emailexist);
             return "register";
         }
         if(!password.equals(confirm)){
-            model.addAttribute("error", GestorAlmuerzosAppException.notpdconcident);
+            model.addAttribute(error, GestorAlmuerzosAppException.notpdconcident);
             return "register";
         }
         if(name.isEmpty()){
-            model.addAttribute("error", GestorAlmuerzosAppException.nameempty);
+            model.addAttribute(error, GestorAlmuerzosAppException.nameempty);
             return "register";
         }
         if(lastName.isEmpty()){
-            model.addAttribute("error", GestorAlmuerzosAppException.lastnameempty);
+            model.addAttribute(error, GestorAlmuerzosAppException.lastnameempty);
             return "register";
         }
         if(email.isEmpty()){
-            model.addAttribute("error", GestorAlmuerzosAppException.emptyemail);
+            model.addAttribute(error, GestorAlmuerzosAppException.emptyemail);
             return "register";
         }
         userServices.addUser(user,true);
         String retu = user.getRole();
         setValues(model);
-        return "redirect:/" + retu;
+        return linkInicio + retu;
     }
 
     @GetMapping("/updateProfile/{id}")
@@ -172,7 +173,7 @@ public class UserController {
     public String deleteUser(@PathVariable String id) {
         userLogin=null;
         userServices.deleteUser(id);
-        return "redirect:/";
+        return linkInicio;
     }
 
     @GetMapping("/userInfo")
@@ -187,7 +188,7 @@ public class UserController {
     @PostMapping("/logout")
     public String logout(){
         userLogin = null;
-        return "redirect:/";
+        return linkInicio;
     }
 
     private void setValues(Model m){
@@ -375,6 +376,5 @@ public class UserController {
         setValues(m);
         return "user/factura";
     }
-
 }
 
