@@ -52,7 +52,7 @@ class FoodExpressTests {
     private OrderServices orderServices;
 
     @Test
-    public void testLoginSuccessful() throws GestorAlmuerzosAppException {
+     void testLoginSuccessful() throws GestorAlmuerzosAppException {
         Role rol = new Role( "client");
         roleRepository.save(rol);
         User user = new User("sebassele2008@gmail.com", "Sebastian", "Zamora", "1234", null,roleRepository);
@@ -62,7 +62,7 @@ class FoodExpressTests {
     }
 
     @Test
-    public void testLoginemptyemail() {
+     void testLoginemptyemail() {
         // Test
         try {
             userService.login("", "password");
@@ -75,7 +75,7 @@ class FoodExpressTests {
     }
 
     @Test
-    public void testGetUser() {
+     void testGetUser() {
         // Mocking
         User user = new User();
         user.setEmail("test@example.com");
@@ -90,7 +90,7 @@ class FoodExpressTests {
     }
 
     @Test
-    public void testAddUser() throws GestorAlmuerzosAppException {
+     void testAddUser() throws GestorAlmuerzosAppException {
         User userToAdd = new User("test@example.com", "John", "Doe", "password", null, roleRepository);
         when(userRepository.findById("test@example.com")).thenReturn(Optional.of(userToAdd));
         userService.addUser(userToAdd,false);
@@ -111,7 +111,7 @@ class FoodExpressTests {
     }
 
     @Test
-    public void ShouldNotLoginWithincorrectinformation()  {
+    void ShouldNotLoginWithincorrectinformation()  {
         try {
             User user = new User("sebassele2008@gmail.com", "Sebastian", "Zamora", "1234", null, roleRepository);
             when(userRepository.findById(Mockito.anyString())).thenReturn(Optional.of(user));
@@ -123,7 +123,7 @@ class FoodExpressTests {
     }
 
     @Test
-   public void ShouldNotLoginWithemptyPassword()  {
+    void ShouldNotLoginWithemptyPassword()  {
         try {
             boolean result = userService.login("sebassele2008@gmail.com", "");
             assertFalse(result);
