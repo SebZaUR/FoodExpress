@@ -104,23 +104,23 @@ public class UserController {
                            @RequestParam("apellido") String lastName,@RequestParam("email") String email,@RequestParam("password") String password,
                            @RequestParam("confirm_password") String confirm,@ModelAttribute("user") User user,Model model) {
         if(repository.findById(email).isPresent()){
-            model.addAttribute(error, GestorAlmuerzosAppException.email_exist);
+            model.addAttribute(error, GestorAlmuerzosAppException.EMAIL_EXIST);
             return register;
         }
         if(!password.equals(confirm)){
-            model.addAttribute(error, GestorAlmuerzosAppException.not_pd_concident);
+            model.addAttribute(error, GestorAlmuerzosAppException.NOT_PD_CONCIDENT);
             return register;
         }
         if(name.isEmpty()){
-            model.addAttribute(error, GestorAlmuerzosAppException.name_empty);
+            model.addAttribute(error, GestorAlmuerzosAppException.NAME_EMPTY);
             return register;
         }
         if(lastName.isEmpty()){
-            model.addAttribute(error, GestorAlmuerzosAppException.last_name_empty);
+            model.addAttribute(error, GestorAlmuerzosAppException.LAST_NAME_EMPTY);
             return register;
         }
         if(email.isEmpty()){
-            model.addAttribute(error, GestorAlmuerzosAppException.empty_email);
+            model.addAttribute(error, GestorAlmuerzosAppException.EMPTY_EMAIL);
             return register;
         }
         userServices.addUser(user,true);

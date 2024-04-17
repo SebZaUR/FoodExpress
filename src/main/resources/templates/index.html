@@ -241,7 +241,7 @@
                 <img th:if="${plate.picture == null}" th:src="${plate.pictureRemote}" class="card-img-top fixed-size-image" alt="Product Image" />
 
                 <div class="card-body">
-                  <h5 th:text="${plate.name}" class="card-title"></h5>
+                  <h5 th:if="${plate.name != null and !#strings.isEmpty(plate.name)}" th:text="${plate.name}" class="card-title"></h5>
                   <p th:text="${plate.description}" class="card-text"></p>
                   <p th:text="'$' + ${plate.price}" class="card-text"></p>
                   <a

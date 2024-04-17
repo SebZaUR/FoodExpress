@@ -68,7 +68,7 @@ class FoodExpressTests {
             userService.login("", "password");
         } catch (GestorAlmuerzosAppException e) {
             // Verify
-            assert(e.getMessage().equals(GestorAlmuerzosAppException.empty_email));
+            assert(e.getMessage().equals(GestorAlmuerzosAppException.EMPTY_EMAIL));
             return;
         }
         assert(false); // The test should throw an exception
@@ -118,7 +118,7 @@ class FoodExpressTests {
             boolean result = userService.login("sebassele2008@gmail.com", "123456");
             assertFalse(result);
         } catch (GestorAlmuerzosAppException e){
-            assertEquals(e.getMessage(),GestorAlmuerzosAppException.incorrect_information);
+            assertEquals(e.getMessage(),GestorAlmuerzosAppException.INCORRECT_INFORMATION);
         }
     }
 
@@ -128,7 +128,7 @@ class FoodExpressTests {
             boolean result = userService.login("sebassele2008@gmail.com", "");
             assertFalse(result);
         } catch (GestorAlmuerzosAppException e){
-            assertEquals(e.getMessage(),GestorAlmuerzosAppException.emptyPassword);
+            assertEquals(e.getMessage(),GestorAlmuerzosAppException.EMPTY_PD);
         }
     }
 
@@ -343,7 +343,7 @@ class FoodExpressTests {
     @Test
     void testGetIngredientById() {
         long ingredientId = 1;
-        Ingredient expectedIngredient = new Ingredient((int) ingredientId, "Test Plate", "Description", 10);
+        Ingredient expectedIngredient = new Ingredient((Long) ingredientId, "Test Plate", "Description", 10);
         when(ingredientRepository.findById(ingredientId)).thenReturn(Optional.of(expectedIngredient));
 
         Optional<Ingredient> result = ingredientServices.getIngredientById(ingredientId);
@@ -354,7 +354,7 @@ class FoodExpressTests {
     @Test
     void testGetIngredientByName() {
         String ingredientName = "Test Plate";
-        Ingredient expectedIngredient = new Ingredient(1, ingredientName, "Description", 10);
+        Ingredient expectedIngredient = new Ingredient(1L, ingredientName, "Description", 10);
         when(ingredientRepository.findByName(ingredientName)).thenReturn(expectedIngredient);
 
         Optional<Ingredient> result = Optional.ofNullable(ingredientServices.getIngredientByName(ingredientName));
@@ -365,7 +365,7 @@ class FoodExpressTests {
 
     @Test
     void testAddIngredient() {
-        Ingredient ingredientToAdd = new Ingredient(1, "New Plate", "Description", 15);
+        Ingredient ingredientToAdd = new Ingredient(1L, "New Plate", "Description", 15);
 
         when(ingredientRepository.save(ingredientToAdd)).thenReturn(ingredientToAdd);
 
@@ -376,7 +376,7 @@ class FoodExpressTests {
 
     @Test
     void testUpdateIngredient() {
-        Ingredient ingredientToUpdate = new Ingredient(1, "Updated Plate", "Updated Description", 20);
+        Ingredient ingredientToUpdate = new Ingredient(1L, "Updated Plate", "Updated Description", 20);
         ingredientServices.updateIngredient(ingredientToUpdate);
 
         verify(ingredientRepository, times(1)).save(ingredientToUpdate);
