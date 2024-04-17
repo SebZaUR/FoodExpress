@@ -125,7 +125,7 @@
 
         <!-- Lista de platos -->
         <div class="col-md-8">
-            <table class="table table-bordered menu-table">
+            <table class="table table-bordered menu-table" aria-description="Listar los platos">
                 <thead>
                 <tr>
                     <th>ID</th>
@@ -204,7 +204,7 @@
 
                 <div class="mb-3">
                     <label for="ingredients" class="form-label">Ingredientes</label>
-                    <div th:each="ingredient: ${ingredients}">
+                    <div th:each="ingredient: ${ingredients}" aria-description="Lista de ingredientes">
                         <label th:for="${'ingredients-' + ingredient.id}" th:text="${ingredient.name}">
                             <input type="checkbox" name="ingredients" th:value="${ingredient.id}"/>
                         </label>

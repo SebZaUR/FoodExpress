@@ -41,7 +41,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="/"
-        ><img src="../images/logoW.png" alt="" width="196" height="47"
+        ><img src="../images/logoW.png" alt="cliente" width="196" height="47"
         /></a>
         <div
                 class="offcanvas offcanvas-end text-bg-dark"
@@ -51,7 +51,7 @@
         >
             <div class="offcanvas-header">
                 <a class="navbar-brand" href="/"
-                ><img src="../images/logoW.png" alt="" width="196" height="47"
+                ><img src="../images/logoW.png" alt="cliente_logo" width="196" height="47"
                 /></a>
                 <button
                         type="button"
@@ -133,7 +133,7 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="../images/cook.jpg" class="overlay-image" alt="cocina1" />
+            <img src="../images/cook.jpg" class="overlay-image" alt="cliente_cocina1" />
             <div class="container">
                 <div class="carousel-caption text-start">
                     <h1>Example headline.</h1>
@@ -151,7 +151,7 @@
             <img
                     src="../images/restaurant.jpg"
                     class="overlay-image"
-                    alt="restaurante"
+                    alt="cliente_restaurante"
             />
             <div class="container">
                 <div class="carousel-caption">
@@ -168,7 +168,7 @@
             <img
                     src="../images/food_U.jpg"
                     class="overlay-image"
-                    alt="comida"
+                    alt="cliente_comida"
             />
             <div class="container">
                 <div class="carousel-caption text-end">
@@ -242,11 +242,11 @@
                 >
                     <div class="card mb-4">
                         <!-- Usa la expresión Thymeleaf para establecer dinámicamente la URL de la imagen -->
-                        <img th:if="${plate.picture != null}" th:src="${plate.picture}" class="card-img-top fixed-size-image" alt="producto1" />
-                        <img th:if="${plate.picture == null}" th:src="${plate.pictureRemote}" class="card-img-top fixed-size-image" alt="producto2" />
+                        <img th:if="${plate.picture != null}" th:src="${plate.picture}" class="card-img-top fixed-size-image" alt="cliente_producto1" />
+                        <img th:if="${plate.picture == null}" th:src="${plate.pictureRemote}" class="card-img-top fixed-size-image" alt="cliente_producto2" />
 
                         <div class="card-body">
-                            <h5 th:if="${plate.name != null and !#strings.isEmpty(plate.name)}" th:text="${plate.name}" class="card-title"></h5>
+                            <h5 th:if="${plate.name != null and !#strings.isEmpty(plate.name)}" class="card-title" th:text="${plate.name}">Nombre del Plato</h5>
                             <p th:text="${plate.description}" class="card-text"></p>
                             <p th:text="'$' + ${plate.price}" class="card-text"></p>
                             <form action="/addToCart" method="post">

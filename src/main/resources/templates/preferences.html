@@ -140,7 +140,6 @@
                                 <div class="mb-3">
                                     <label for="ingredientIds">Selecciona tus Ingredientes:</label>
                                     <select multiple class="form-select" id="ingredientIds" name="ingredientIds">
-                                        <!-- Itera sobre la lista de todos los ingredientes disponibles -->
                                         <option th:each="ingredient : ${allIngredients}" th:value="${ingredient.id}" th:text="${ingredient.name}">
                                             Nombre del Ingrediente
                                         </option>
@@ -188,13 +187,11 @@
                                 <div class="mb-3">
                                     <label for="ingredientIds">Selecciona tus Ingredientes:</label>
                                     <select multiple class="form-select" id="bannedIngredientIds" name="bannedIngredientIds">
-                                        <!-- Itera sobre la lista de todos los ingredientes disponibles -->
                                         <option th:each="ingredient : ${allIngredients}" th:value="${ingredient.id}" th:text="${ingredient.name}">
                                             Nombre del Ingrediente
                                         </option>
                                     </select>
                                 </div>
-                                <!-- Botón para agregar no deseados -->
                                 <button type="submit" class="btn btn-primary">Guardar cambios</button>
                             </form>
                         </div>
@@ -212,8 +209,9 @@
                                 <ul class="list-group">
                                     <li th:each="bannedIngredient : ${bannedIngredients}" class="list-group-item">
                                         <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" name="bannedIngredientIds" th:value="${bannedIngredient.id}" id="checkbox-${bannedIngredient.id}">
                                             <label class="form-check-label" th:for="${'checkbox-' + bannedIngredient.id}" th:text="${bannedIngredient.name}">
-                                                <input type="checkbox" class="form-check-input" name="bannedIngredientIds" th:value="${bannedIngredient.id}" id="checkbox-${bannedIngredient.id}">
+                                                Nombre de la Preferencia
                                             </label>
                                         </div>
                                     </li>
