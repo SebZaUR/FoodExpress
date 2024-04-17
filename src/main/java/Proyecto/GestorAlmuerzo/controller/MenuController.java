@@ -21,7 +21,7 @@ public class MenuController {
     private final PlateServices plateServices;
     private final CategoryServices categoryServices;
     private final IngredientServices ingredientServices;
-    private static final String linkInicio = "redirect:/admin/menu";
+    private static final String LINKINICIO = "redirect:/admin/menu";
 
     public MenuController(PlateServices plateServices, CategoryServices categoryServices, IngredientServices ingredientServices) {
         this.plateServices = plateServices;
@@ -80,7 +80,7 @@ public class MenuController {
         plateServices.addPlate(plate);
 
 
-        return linkInicio;
+        return LINKINICIO;
     }
 
 
@@ -114,14 +114,14 @@ public class MenuController {
             }
             plateServices.updatePlate(plate);
         }
-        return linkInicio;
+        return LINKINICIO;
     }
 
     @RequestMapping("/deletePlate/{id}")
     public String deletePlate(@PathVariable String id) {
         long plateId = Long.parseLong(id);
         plateServices.deletePlate(plateId);
-        return linkInicio;
+        return LINKINICIO;
     }
 }
 

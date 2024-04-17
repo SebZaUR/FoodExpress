@@ -26,12 +26,12 @@ public class UserController {
     private final IngredientServices ingredientServices;
     private final UserRepository repository;
     private final OrderServices orderServices;
-    private final String linkInicio = "redirect:/";
+    private final String LINKINICIO = "redirect:/";
     private Order order;
     private List<Plate> plateList = new ArrayList<>();
-    private static final String error ="error";
-    private static final String register ="register";
-    private static final String preferencesLink ="redirect:/preferences";
+    private static final String ERROR ="ERROR";
+    private static final String REGISTER ="register";
+    private static final String PREFERENCELINK ="redirect:/preferences";
 
     public UserController( PlateServices plateServices, UserServices userServices, IngredientServices ingredientServices, UserRepository repository, OrderServices orderServices) {
         this.plateServices = plateServices;
@@ -64,13 +64,13 @@ public class UserController {
                 Optional<User> u = userServices.getUser(correo);
                 User usuario = u.orElseThrow();
                 userLogin = correo;
-                redirect = linkInicio + usuario.getRole();
+                redirect = LINKINICIO + usuario.getRole();
             }else{
-                model.addAttribute(error, GestorAlmuerzosAppException.incorrect_information);
+                model.addAttribute(ERROR, GestorAlmuerzosAppException.incorrect_information);
                 return redirect;
             }
         }catch (GestorAlmuerzosAppException e){
-            model.addAttribute(error, e.getMessage());
+            model.addAttribute(ERROR, e.getMessage());
             return redirect;
         }
         return redirect;
@@ -96,7 +96,7 @@ public class UserController {
     @GetMapping("/register")
     public String showUserRegisterForm(Model model) {
         model.addAttribute("user", new User());
-        return register;
+        return REGISTER;
     }
 
     @PostMapping("/save")
@@ -104,29 +104,29 @@ public class UserController {
                            @RequestParam("apellido") String lastName,@RequestParam("email") String email,@RequestParam("password") String password,
                            @RequestParam("confirm_password") String confirm,@ModelAttribute("user") User user,Model model) {
         if(repository.findById(email).isPresent()){
-            model.addAttribute(error, GestorAlmuerzosAppException.EMAIL_EXIST);
-            return register;
+            model.addAttribute(ERROR, GestorAlmuerzosAppException.EMAIL_EXIST);
+            return REGISTER;
         }
         if(!password.equals(confirm)){
-            model.addAttribute(error, GestorAlmuerzosAppException.NOT_PD_CONCIDENT);
-            return register;
+            model.addAttribute(ERROR, GestorAlmuerzosAppException.NOT_PD_CONCIDENT);
+            return REGISTER;
         }
         if(name.isEmpty()){
-            model.addAttribute(error, GestorAlmuerzosAppException.NAME_EMPTY);
-            return register;
+            model.addAttribute(ERROR, GestorAlmuerzosAppException.NAME_EMPTY);
+            return REGISTER;
         }
         if(lastName.isEmpty()){
-            model.addAttribute(error, GestorAlmuerzosAppException.LAST_NAME_EMPTY);
-            return register;
+            model.addAttribute(ERROR, GestorAlmuerzosAppException.LAST_NAME_EMPTY);
+            return REGISTER;
         }
         if(email.isEmpty()){
-            model.addAttribute(error, GestorAlmuerzosAppException.EMPTY_EMAIL);
-            return register;
+            model.addAttribute(ERROR, GestorAlmuerzosAppException.EMPTY_EMAIL);
+            return REGISTER;
         }
         userServices.addUser(user,true);
         String retu = user.getRole();
         setValues(model);
-        return linkInicio + retu;
+        return LINKINICIO + retu;
     }
 
     @GetMapping("/updateProfile/{id}")
@@ -157,10 +157,10 @@ public class UserController {
     public String sendEmail(@RequestParam("email") String email,Model model) throws GestorAlmuerzosAppException {
         Optional<User> usuario = userServices.getUser(email);
         try {
-            User user = usuario.orElseThrow(() -> new GestorAlmuerzosAppException(GestorAlmuerzosAppException.emailnotexist));
+            User user = usuario.orElseThrow(() -> new GestorAlmuerzosAppException(GestorAlmuerzosAppException.EMAIL_NOT_EXIST));
             return user.getEmail();
         }catch(GestorAlmuerzosAppException e){
-            model.addAttribute("error", e.getMessage());
+            model.addAttribute(ERROR, e.getMessage());
             return("/user/forgotPassword");
         }
     }
@@ -175,7 +175,7 @@ public class UserController {
     public String deleteUser(@PathVariable String id) {
         userLogin=null;
         userServices.deleteUser(id);
-        return linkInicio;
+        return LINKINICIO;
     }
 
     @GetMapping("/userInfo")
@@ -190,7 +190,7 @@ public class UserController {
     @PostMapping("/logout")
     public String logout(){
         userLogin = null;
-        return linkInicio;
+        return LINKINICIO;
     }
 
     private void setValues(Model m){
@@ -255,7 +255,7 @@ public class UserController {
             userServices.updateUser(existingUser);
         }
 
-        return preferencesLink;
+        return PREFERENCELINK;
     }
 
     @PostMapping("/saveBannedIngredients")
@@ -286,7 +286,7 @@ public class UserController {
             userServices.updateUser(existingUser);
         }
 
-        return preferencesLink;
+        return PREFERENCELINK;
     }
 
 
@@ -307,7 +307,7 @@ public class UserController {
             }
         }
 
-        return preferencesLink;
+        return PREFERENCELINK;
     }
 
     @PostMapping("/deleteBannedIngredients")
@@ -328,7 +328,7 @@ public class UserController {
             }
         }
 
-        return preferencesLink;
+        return PREFERENCELINK;
     }
 
     @PostMapping("/addToCart")

@@ -15,7 +15,7 @@ import java.util.Optional;
 public class InventoryController {
 
     private final IngredientServices ingredientServices;
-    private static final String linkInicio ="redirect:/admin/inventory";
+    private static final String LINKINICIO ="redirect:/admin/inventory";
 
 
     public InventoryController(IngredientServices ingredientServices) {
@@ -36,7 +36,7 @@ public class InventoryController {
     @PostMapping("/addIngredient")
     public String addIngredient(@ModelAttribute("ingredient") Ingredient ingredient) {
         ingredientServices.addIngredient(ingredient);
-        return linkInicio;
+        return LINKINICIO;
     }
 
     @GetMapping("/editIngredient/{id}")
@@ -55,7 +55,7 @@ public class InventoryController {
             ingredient.setId((long) plateId);
             ingredientServices.updateIngredient(ingredient);
         }
-        return linkInicio;
+        return LINKINICIO;
     }
 
     @RequestMapping("/deleteIngredient/{id}")
@@ -67,7 +67,7 @@ public class InventoryController {
             redirectAttributes.addFlashAttribute("error", "Error al eliminar el ingrediente: " + e.getMessage());
             return "redirect:/admin/inventory?error";
         }
-        return linkInicio;
+        return LINKINICIO;
 
     }
 }
