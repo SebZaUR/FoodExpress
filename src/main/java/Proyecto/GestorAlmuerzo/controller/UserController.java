@@ -30,6 +30,8 @@ public class UserController {
     private Order order;
     private List<Plate> plateList = new ArrayList<>();
     private final String error ="error";
+    private final String register ="register";
+    private final String preferencesLink ="redirect:/preferences";
 
     public UserController( PlateServices plateServices, UserServices userServices, IngredientServices ingredientServices, UserRepository repository, OrderServices orderServices) {
         this.plateServices = plateServices;
@@ -64,7 +66,7 @@ public class UserController {
                 userLogin = correo;
                 redirect = linkInicio + usuario.getRole();
             }else{
-                model.addAttribute(error, GestorAlmuerzosAppException.incorrectinformation);
+                model.addAttribute(error, GestorAlmuerzosAppException.incorrect_information);
                 return redirect;
             }
         }catch (GestorAlmuerzosAppException e){
@@ -94,7 +96,7 @@ public class UserController {
     @GetMapping("/register")
     public String showUserRegisterForm(Model model) {
         model.addAttribute("user", new User());
-        return "register";
+        return register;
     }
 
     @PostMapping("/save")
@@ -102,24 +104,24 @@ public class UserController {
                            @RequestParam("apellido") String lastName,@RequestParam("email") String email,@RequestParam("password") String password,
                            @RequestParam("confirm_password") String confirm,@ModelAttribute("user") User user,Model model) {
         if(repository.findById(email).isPresent()){
-            model.addAttribute(error, GestorAlmuerzosAppException.emailexist);
-            return "register";
+            model.addAttribute(error, GestorAlmuerzosAppException.email_exist);
+            return register;
         }
         if(!password.equals(confirm)){
-            model.addAttribute(error, GestorAlmuerzosAppException.notpdconcident);
-            return "register";
+            model.addAttribute(error, GestorAlmuerzosAppException.not_pd_concident);
+            return register;
         }
         if(name.isEmpty()){
-            model.addAttribute(error, GestorAlmuerzosAppException.nameempty);
-            return "register";
+            model.addAttribute(error, GestorAlmuerzosAppException.name_empty);
+            return register;
         }
         if(lastName.isEmpty()){
-            model.addAttribute(error, GestorAlmuerzosAppException.lastnameempty);
-            return "register";
+            model.addAttribute(error, GestorAlmuerzosAppException.last_name_empty);
+            return register;
         }
         if(email.isEmpty()){
-            model.addAttribute(error, GestorAlmuerzosAppException.emptyemail);
-            return "register";
+            model.addAttribute(error, GestorAlmuerzosAppException.empty_email);
+            return register;
         }
         userServices.addUser(user,true);
         String retu = user.getRole();
@@ -253,7 +255,7 @@ public class UserController {
             userServices.updateUser(existingUser);
         }
 
-        return "redirect:/preferences";
+        return preferencesLink;
     }
 
     @PostMapping("/saveBannedIngredients")
@@ -284,7 +286,7 @@ public class UserController {
             userServices.updateUser(existingUser);
         }
 
-        return "redirect:/preferences";
+        return preferencesLink;
     }
 
 
@@ -305,7 +307,7 @@ public class UserController {
             }
         }
 
-        return "redirect:/preferences";
+        return preferencesLink;
     }
 
     @PostMapping("/deleteBannedIngredients")
@@ -326,7 +328,7 @@ public class UserController {
             }
         }
 
-        return "redirect:/preferences";
+        return preferencesLink;
     }
 
     @PostMapping("/addToCart")

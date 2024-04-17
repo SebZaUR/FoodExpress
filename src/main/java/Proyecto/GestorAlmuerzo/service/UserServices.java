@@ -22,7 +22,7 @@ public class UserServices {
 
     public boolean login(String email, String password) throws GestorAlmuerzosAppException {
         if (email.isEmpty()) {
-            throw new GestorAlmuerzosAppException(GestorAlmuerzosAppException.emptyemail);
+            throw new GestorAlmuerzosAppException(GestorAlmuerzosAppException.empty_email);
         }
         if (password.isEmpty()) {
             throw new GestorAlmuerzosAppException(GestorAlmuerzosAppException.emptyPassword);

@@ -68,7 +68,7 @@ class FoodExpressTests {
             userService.login("", "password");
         } catch (GestorAlmuerzosAppException e) {
             // Verify
-            assert(e.getMessage().equals(GestorAlmuerzosAppException.emptyemail));
+            assert(e.getMessage().equals(GestorAlmuerzosAppException.empty_email));
             return;
         }
         assert(false); // The test should throw an exception
@@ -118,7 +118,7 @@ class FoodExpressTests {
             boolean result = userService.login("sebassele2008@gmail.com", "123456");
             assertFalse(result);
         } catch (GestorAlmuerzosAppException e){
-            assertEquals(e.getMessage(),GestorAlmuerzosAppException.incorrectinformation);
+            assertEquals(e.getMessage(),GestorAlmuerzosAppException.incorrect_information);
         }
     }
 
