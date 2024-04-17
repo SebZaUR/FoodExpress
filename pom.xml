@@ -58,13 +58,13 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.22</version> <!-- Asegúrate de usar la última versión disponible -->
+			<version>1.18.32</version> <!-- Asegúrate de usar la última versión disponible -->
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>jakarta.validation</groupId>
 			<artifactId>jakarta.validation-api</artifactId>
-			<version>3.0.0</version> <!-- Asegúrate de usar la última versión disponible -->
+			<version>3.0.2</version> <!-- Asegúrate de usar la última versión disponible -->
 		</dependency>
 		<dependency>
 			<groupId>com.google.apis</groupId>
