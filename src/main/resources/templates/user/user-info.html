@@ -105,24 +105,20 @@
             <div class="card-body">
               <div class="userview" th:if="${user}">
                 <div class="informacion mb-3">
-                  <label class="fw-bold">Nombres:
-                    <p th:text="${user.nombre}"></p>
-                  </label>
+                  <label class="fw-bold">Nombres:</label>
+                  <p th:text="${user.nombre}"></p>
                 </div>
                 <div class="informacion mb-3">
-                  <label class="fw-bold">Apellidos:
-                    <p th:text="${user.apellido}"></p>
-                  </label>
+                  <label class="fw-bold">Apellidos:</label>
+                  <p th:text="${user.apellido}"></p>
                 </div>
                 <div class="informacion mb-3">
-                  <label class="fw-bold">Rol:
-                    <p th:text="${user.role}"></p>
-                  </label>
+                  <label class="fw-bold">Rol:</label>
+                  <p th:text="${user.role}"></p>
                 </div>
                 <div class="informacion mb-3">
-                  <label class="fw-bold">Correo:
-                    <p th:text="${user.email}"></p>
-                  </label>
+                  <label class="fw-bold">Correo:</label>
+                  <p th:text="${user.email}"></p>
                 </div>
                 <a th:href="@{/updateProfile/{id}(id=${user.email})}" >
                   <button class="btn btn-outline-success me-2" type="submit">
