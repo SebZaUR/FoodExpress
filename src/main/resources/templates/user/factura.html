@@ -109,16 +109,23 @@
                                     <p th:text="'FoodExprees_'+ ${numFactura}"></p>
                                 </div>
                                 <div class="informacion mb-3">
-                                    <label class="fw-bold">Fecha:</label>
-                                    <p th:text="${order.fecha}"></p>
+                                    <label class="fw-bold">
+                                        <p th:text="${order.fecha}"></p>
+                                        Fecha:
+                                    </label>
+
                                 </div>
                                 <div class="informacion mb-3">
-                                    <label class="fw-bold">Usuario:</label>
-                                    <p th:text="${order.idUsuario}"></p>
+                                    <label class="fw-bold">
+                                        <p th:text="${order.idUsuario}"></p>
+                                        Usuario:
+                                    </label>
                                 </div>
                                 <div class="informacion mb-3">
-                                    <label class="fw-bold">Precio</label>
-                                    <p th:text="${order.price}"></p>
+                                    <label class="fw-bold">
+                                        <p th:text="${order.price}"></p>
+                                        Precio
+                                    </label>
                                 </div>
                             </div>
                         </div>
