@@ -133,7 +133,7 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="../images/cook.jpg" class="overlay-image" alt="Imagen 1" />
+            <img src="../images/cook.jpg" class="overlay-image" alt="cocina1" />
             <div class="container">
                 <div class="carousel-caption text-start">
                     <h1>Example headline.</h1>
@@ -151,7 +151,7 @@
             <img
                     src="../images/restaurant.jpg"
                     class="overlay-image"
-                    alt="Imagen 2"
+                    alt="restaurante"
             />
             <div class="container">
                 <div class="carousel-caption">
@@ -168,7 +168,7 @@
             <img
                     src="../images/food_U.jpg"
                     class="overlay-image"
-                    alt="Imagen 3"
+                    alt="comida"
             />
             <div class="container">
                 <div class="carousel-caption text-end">
@@ -242,8 +242,8 @@
                 >
                     <div class="card mb-4">
                         <!-- Usa la expresión Thymeleaf para establecer dinámicamente la URL de la imagen -->
-                        <img th:if="${plate.picture != null}" th:src="${plate.picture}" class="card-img-top fixed-size-image" alt="Product Image" />
-                        <img th:if="${plate.picture == null}" th:src="${plate.pictureRemote}" class="card-img-top fixed-size-image" alt="Product Image" />
+                        <img th:if="${plate.picture != null}" th:src="${plate.picture}" class="card-img-top fixed-size-image" alt="producto1" />
+                        <img th:if="${plate.picture == null}" th:src="${plate.pictureRemote}" class="card-img-top fixed-size-image" alt="producto2" />
 
                         <div class="card-body">
                             <h5 th:if="${plate.name != null and !#strings.isEmpty(plate.name)}" th:text="${plate.name}" class="card-title"></h5>

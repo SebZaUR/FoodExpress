@@ -26,7 +26,7 @@ public class UserController {
     private final IngredientServices ingredientServices;
     private final UserRepository repository;
     private final OrderServices orderServices;
-    private final String LINKINICIO = "redirect:/";
+    private static final String LINKINICIO = "redirect:/";
     private Order order;
     private List<Plate> plateList = new ArrayList<>();
     private static final String ERROR ="ERROR";
