@@ -15,7 +15,7 @@ import java.util.Optional;
 public class InventoryController {
 
     private final IngredientServices ingredientServices;
-    private final String linkInicio ="redirect:/admin/inventory";
+    private static final String linkInicio ="redirect:/admin/inventory";
 
 
     public InventoryController(IngredientServices ingredientServices) {

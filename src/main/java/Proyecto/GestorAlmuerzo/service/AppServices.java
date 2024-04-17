@@ -24,7 +24,7 @@ public class AppServices {
      */
     public Optional<Role> getRol(int id) {
         return roleRepository.findById(id);
-    };
+    }
 
     /**
      * Me añade un nuevo rol

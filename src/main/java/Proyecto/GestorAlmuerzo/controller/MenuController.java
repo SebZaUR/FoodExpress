@@ -21,7 +21,7 @@ public class MenuController {
     private final PlateServices plateServices;
     private final CategoryServices categoryServices;
     private final IngredientServices ingredientServices;
-    private final String linkInicio = "redirect:/admin/menu";
+    private static final String linkInicio = "redirect:/admin/menu";
 
     public MenuController(PlateServices plateServices, CategoryServices categoryServices, IngredientServices ingredientServices) {
         this.plateServices = plateServices;

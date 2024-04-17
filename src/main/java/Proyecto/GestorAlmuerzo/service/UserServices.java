@@ -11,24 +11,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServices {
 
-    private final UserRepository UserRepository;
+    private final UserRepository userRepository;
 
     private final  RoleRepository roleRepository;
 
     public UserServices(proyecto.gestoralmuerzo.repository.UserRepository userRepository, RoleRepository roleRepository) {
-        UserRepository = userRepository;
+        this.userRepository = userRepository;
         this.roleRepository = roleRepository;
     }
 
     public boolean login(String email, String password) throws GestorAlmuerzosAppException {
         if (email.isEmpty()) {
-            throw new GestorAlmuerzosAppException(GestorAlmuerzosAppException.empty_email);
+            throw new GestorAlmuerzosAppException(GestorAlmuerzosAppException.EMPTY_EMAIL);
         }
         if (password.isEmpty()) {
-            throw new GestorAlmuerzosAppException(GestorAlmuerzosAppException.emptyPassword);
+            throw new GestorAlmuerzosAppException(GestorAlmuerzosAppException.EMPTY_PD);
         }
         Optional<User> newUser = getUser(email);
-        User usuario = newUser.orElseThrow(() -> new GestorAlmuerzosAppException(GestorAlmuerzosAppException.emailnotexist));
+        User usuario = newUser.orElseThrow(() -> new GestorAlmuerzosAppException(GestorAlmuerzosAppException.EMAIL_NOT_EXIST));
         String encryptPassword = usuario.encrypt(password);
         String userPassword = usuario.getPassword();
         return encryptPassword.equals(userPassword);

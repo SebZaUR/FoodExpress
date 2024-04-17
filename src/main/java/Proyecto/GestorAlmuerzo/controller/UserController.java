@@ -29,9 +29,9 @@ public class UserController {
     private final String linkInicio = "redirect:/";
     private Order order;
     private List<Plate> plateList = new ArrayList<>();
-    private final String error ="error";
-    private final String register ="register";
-    private final String preferencesLink ="redirect:/preferences";
+    private static final String error ="error";
+    private static final String register ="register";
+    private static final String preferencesLink ="redirect:/preferences";
 
     public UserController( PlateServices plateServices, UserServices userServices, IngredientServices ingredientServices, UserRepository repository, OrderServices orderServices) {
         this.plateServices = plateServices;
@@ -373,7 +373,7 @@ public class UserController {
     @GetMapping("/facture")
     public String generateFacture(Model m){
         m.addAttribute("order",order);
-        long randomLong = Math.abs(num.nextLong());
+        long randomLong = num.nextLong() & Long.MAX_VALUE;
         m.addAttribute("numFactura",randomLong);
         setValues(m);
         return "user/factura";
